@@ -20,6 +20,14 @@
         .title {
             border: 3px solid black;
             padding: 3vw;
+            z-index: 1;
+        }
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: block;
+            z-index: 0;
         }
     </style>
   </head>
@@ -33,5 +41,16 @@
 	  ga('create', 'UA-82780619-1', 'auto');
 	  ga('send', 'pageview');
 	</script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/trianglify/1.0.1/trianglify.min.js"></script>
+    <script>
+        (function(){
+            var pattern = Trianglify({
+                height: document.body.clientHeight,
+                width: document.body.clientWidth,
+                cell_size: 40
+            });
+            document.body.insertBefore(pattern.canvas(), document.body.firstChild);
+        })();
+    </script>
   </body>
 </html>
